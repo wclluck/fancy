@@ -1,0 +1,66 @@
+﻿<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<title>Document by echart</title>
+	<link rel="stylesheet" type="text/css" href="css/fancy.css" />
+<script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+<script type="text/javascript" src="js/lib/echarts-plain.js"></script>
+<script type="text/javascript" src="js/lib/echarts-plain-map.js"></script>
+<script type="text/javascript" src="js/charts/map.js"></script>
+<script type="text/javascript" src="js/charts/circle.js"></script>
+<script type="text/javascript" src="js/charts/pie.js"></script>
+<script type="text/javascript" src="js/charts/line.js"></script>
+<script type="text/javascript" src="js/charts/bar.js"></script>
+<script type="text/javascript" src="js/fancy.js"></script>
+
+
+<script type="text/javascript">
+$(document).ready(function() {
+     myMap();
+     myCircle();
+     myPie();
+     myLine();
+     myBar();  
+ });
+</script>
+
+
+</head>
+<body> 
+	<div class="content">
+		<div class="tab-box">
+			
+			<div class="tab-body">
+				<div  class="tab_cont"  id="map_main" style="height:400px;"></div>
+			</div>
+		</div>
+		<div class="tab-wp">
+			<div class="tab-box">
+				<div class="tab-head">
+					<a href="javascript:void(0)" class="a cur">环形图<em class="em"></em></a>
+					<a href="javascript:void(0)" class="a">饼状图<em class="em"></em></a>
+				</div>
+				<div class="tab-body">
+					<div style="height:250px; width:300px;" class="tab-cont" id="circle_main"></div>
+					<div style="height:250px; width:300px;" class="tab-cont" id="pie_main"></div>
+				</div>
+			</div>
+			<div class="tab-box">
+				<div class="tab-head">
+					<a href="javascript:void(0)" class="a cur">折线图<em class="em"></em></a>
+					<a href="javascript:void(0)" class="a">柱状图<em class="em"></em></a>
+				</div>
+				<div class="tab-body">
+					<div  style="height:250px; width:650px;" class="tab-cont" id="line_main"></div>
+					<div  style="height:250px; width:650px;" class="tab-cont" id="bar_main"></div>
+				</div>
+			</div>
+		</div>
+		
+	</div>
+
+
+	  
+</body> 
+</html>

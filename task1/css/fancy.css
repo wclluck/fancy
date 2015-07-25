@@ -1,0 +1,22 @@
+﻿body,div,ul,li{margin:0; padding:0; font-size:12px;} 
+a{text-decoration:none;color:#666;}
+body{
+	background:#FFFFFF;
+}
+
+.content{
+	width: 1000px;
+	height: 700px;
+	padding: 30px 100px;
+	position:relative;
+	margin: 0 auto;
+	background:#edf1f1;
+}
+ 
+.tab-box{border-bottom:1px solid #dbdbdb;}
+.tab-box .tab-head .a{color:#627284;font-weight:bold;margin-left:10px;position:relative;line-height:30px;display:inline-block;height:30px;}
+.tab-box .tab-head .a:first-child{margin-left:0;margin-top: 10px;}
+.tab-box .tab-head .a.cur .em{position:absolute;width:100%;border:1px solid #4fccf1;bottom:0;left:0;}
+.tab-box .tab-body .tab-cont{display:none;margin-top: 10px;}
+.tab-box .tab-body .tab-cont:first-child{display:block;}
+.tab-wp .tab-box{float:left;width:35%;}
