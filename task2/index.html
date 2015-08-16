@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="UTF-8">
+<head>
+	<meta charset="UTF-8">
+	<!--允许进行跨域请求-->
+	<meta http-equiv="access-control-allow-origin" content="*">
+	<title>任务二</title>
+	<link rel="stylesheet" type="text/css" href="css/fancy.css">
+	<!--ECharts单文件引入-->
+    
+	<script type="text/javascript" src="js/lib/jquery-1.8.0.min.js"></script>
+	<script type="text/javascript" src="js/lib/echarts-plain.js"></script>
+	<script type="text/javascript" src="js/lib/echarts-plain-map.js"></script>
+	<script src="jquery-1.8.2.min.js" type="text/javascript"></script>
+	<script src="js/charts/bigmap.js" type="text/javascript"></script>
+	<script src="js/charts/smallmap.js" type="text/javascript"></script>
+	<script src="js/fancy.js" type="text/javascript"></script>
+	
+	<script type="text/javascript">
+		/*JavaScript柱状图、折线图切换*/
+			$(document).ready(function(){
+              	bigmap_init();
+              	smallmap1_init();
+              	smallmap2_init();
+              	bigmap_count();
+                smallmap1_count();
+                smallmap2_count();
+			});
+	</script>
+</head>
+
+<body>
+    
+    <div class="body">
+        <div class="big_map">
+            <!-- map图形选择文字 -->
+            <div class="tab_head">
+                <div class="head_line">
+                    <div class="head_line_in small address">
+                        <span>地区：</span>
+                        <span class="round beijin">●</span>
+                        <a href="javascript:void(0)" class="cur" >北京</a>
+                        <span class="round shanghai">●</span>
+                        <a href="javascript:void(0)" class="" >上海</a>
+                        <span class="round guangzhou">●</span>
+                        <a href="javascript:void(0)" class="" >广州</a>
+                    </div>
+                   
+                    <div class="map_head">
+                        <!-- 图形切换 -->
+                        <span>图标：</span>
+                        <a href="javascript:void(0)" class="" >柱状图</a>
+                        <a href="javascript:void(0)" class="cur" >折线图</a>
+                    </div>
+                </div>
+                <div class="head_line">
+                    <div class="head_line_in small granular ">
+                        <span>粒度：</span>
+                        <a href="javascript:void(0)" class="cur">周粒度</a>
+                        <a href="javascript:void(0)" class="">月粒度</a>
+                        <a href="javascript:void(0)" class="">季粒度</a>
+                    </div>
+                    <div class="head_line_in big aqi">
+                        <span>纵坐标值：</span>
+                        <a href="javascript:void(0)" class="cur">AQI峰值</a>
+                        <a href="javascript:void(0)" class="">AQI平均值</a>
+                        <a href="javascript:void(0)" class="">AQI&lt;100的天数</a>
+                    </div>
+                </div>
+            </div>
+            <!-- map图像展示 -->
+            <div class="map">
+                 <div class="map_cont" id="map_cont_1"  style="height:400px"></div> 
+            </div>
+        </div>
+        <!--并列图形-->
+        <div class="both_map">
+            <div class="small_map1">
+                <!--图形选择文字-->
+                <div class="tab_head">
+                    <div class="head_line">
+                         <div class="head_line_in small address">
+                            <span>地区：</span>
+                            <span class="round beijin">●</span>
+                            <a href="javascript:void(0)" class="" >北京</a>
+                            <span class="round shanghai">●</span>
+                            <a href="javascript:void(0)" class="cur" >上海</a>
+                            <span class="round guangzhou">●</span>
+                             <a href="javascript:void(0)" class="" >广州</a>
+                        </div>
+                
+                       <div class="map_head">
+                        <!--图形切换-->
+                       <span>图标：</span>
+                            <a href="javascript:void(0)" class="" >柱状图</a>
+                            <a href="javascript:void(0)" class="cur" >折线图</a>
+                         </div>
+                    </div>
+                    <div class="head_line">
+                        <div class="head_line_in small granular">
+                            <span>粒度:</span>
+                            <a href="javascript:void(0)" class="">周粒度</a>
+                            <a href="javascript:void(0)" class="cur">月粒度</a>
+                            <a href="javascript:void(0)" class="">季粒度</a>
+                        </div>
+                        <div class="head_line_in big aqi">
+                            <span>纵坐标:</span>
+                            <a href="javascript:void(0)" class="">AQI峰值</a>
+                            <a href="javascript:void(0)" class="cur">AQI平均值</a>
+                            <a href="javascript:void(0)" class="">AQI&lt;100的天数</a>
+                        </div>
+                    </div>
+                </div>
+                <!--map图像展示-->
+                <div class="map smallmap1">
+                    <div class="map_cont" id="map_cont_2" style="height:400px">
+                    </div>
+                </div>
+            </div>
+            <div class="small_map2">
+                <!--map图形选择文字-->
+                <div class="tab_head">
+                    <div class="head_line">
+                        <div class="head_line_in small address">
+                            <span>地区: </span>
+                            <span class="round beijin">●</span>
+                            <a href="javascript:void(0)" class="">北京</a>
+                            <span class="round shanghai">●</span>
+                            <a href="javascript:void(0)" class="">上海</a>
+                            <span class="round guangzhou">●</span>
+                            <a href="javascript:void(0)" class="cur">广州</a>
+                        </div>
+
+                        <div class="map_head">
+                            <!--图形切换-->
+                            <span>图标:</span>
+                            <a href="javascript:void(0)" class="cur">柱状图</a>
+                            <a href="javascript:void(0)" class="">折线图</a>
+                        </div>
+                    </div>
+                    <div class="head_line">
+                        <div class="head_line_in small granular">
+                            <span>粒度:</span>
+                            <a href="javascript:void(0)" class="">周粒度</a>
+                            <a href="javascript:void(0)" class="">月粒度</a>
+                            <a href="javascript:void(0)" class="cur">季粒度</a>
+                        </div>
+                        <div class="head_line_in big aqi">
+                            <span>纵坐标:</span>
+                            <a href="javascript:void(0)" class="cur">AQI峰值</a>
+                            <a href="javascript:void(0)" class="">AQI平均值</a>
+                            <a href="javascript:void(0)" class="">AQI&lt;100的天数</a>
+                        </div>
+                    </div>  
+                </div>
+                <!--map图像展示-->
+                <div class="map">
+                    <div class="map_cont" id="map_cont_3" style="height:400px"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+   
+</body>
+</html>
